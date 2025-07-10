@@ -1,0 +1,4 @@
+framework module AwInSDK {
+  header "AwInSDK-Swift.h"
+  requires objc
+}
