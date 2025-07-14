@@ -310,6 +310,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_PROTOCOL("_TtP7AwInSDK20DataReceiverDelegate_")
 @protocol DataReceiverDelegate
 - (void)didReceiveDataWithMsg:(NSString * _Nonnull)msg trancationS:(NSString * _Nonnull)trancationS;
+- (void)didFetchProductResultWithMsg:(NSString * _Nonnull)msg;
+- (void)didReStorePurchasesWithRestoreArr:(NSArray * _Nonnull)restoreArr;
 @end
 
 /// /import PassKit
@@ -319,7 +321,9 @@ SWIFT_CLASS("_TtC7AwInSDK15PurchaseManager")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PurchaseManager * _Nonnull shared;)
 + (PurchaseManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)restorePurchases;
 - (void)requestProductInfoWithProductIdentifier:(NSString * _Nonnull)productIdentifier completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)fetchProductPriceWithProductID:(NSString * _Nonnull)productID completionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
 @class SKProductsRequest;

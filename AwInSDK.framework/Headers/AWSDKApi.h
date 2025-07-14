@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, AdType) {
 //#pragma mark - 用户绑定查询
 //-(void)userBindCheck;
 
-
+//绑定结果
 -(void)onBindResult:(NSDictionary *)loginResultBean;
 
 //支付成功
@@ -124,15 +124,15 @@ typedef NS_ENUM(NSInteger, AdType) {
 //AIhelp未读消息数
 -(void)aiHelpunReadMsgCount:(int)msgCount;
 
-
-
--(void)startLoading;
--(void)stopLoading;
-
-
-
-
 //-(void)onRewardedCompleted;//激励广告播放完成----新增
+
+//查询是否有优惠回调
+-(void)fetchProductPrice:(BOOL )isEligible;//商品是否有优惠
+
+//恢复购买回调回调
+-(void)reStorePurchase:(NSArray *)transactionIdentifiers;//商品是否有优惠
+
+
 
 @end
 
@@ -281,7 +281,8 @@ typedef NS_ENUM(NSInteger, AdType) {
 
 +(void)AIHelpfetchUnreadMessageCount;
 
-
+#pragma mark - 查询是否有优惠
++(void)fetchProductPriceWithProductId:(NSString *)productId;
 
 
 +(void)toastWithStr:(NSString *)toastS;//sdk提示
@@ -343,7 +344,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandl
 
 
 
-+(void)userBanView;
+
 
 
 #pragma mark - 用户标签
@@ -358,7 +359,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandl
 
 +(NSString *)getIdFA;
 
-
++(void)restorePurchases;//恢复购买
 @end
 
 NS_ASSUME_NONNULL_END
