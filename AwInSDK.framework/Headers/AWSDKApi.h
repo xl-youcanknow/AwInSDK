@@ -134,7 +134,7 @@ typedef NS_ENUM(NSInteger, AdType) {
 -(void)fetchProductPrice:(BOOL )isEligible;//商品是否有优惠
 
 //恢复购买回调回调
--(void)reStorePurchase:(NSArray *)transactionIdentifiers;//商品是否有优惠
+-(void)reStorePurchase:(NSDictionary *)dataDict;//商品是否有优惠
 
 //-(void)onRewardedCompleted;//激励广告播放完成----新增
 
